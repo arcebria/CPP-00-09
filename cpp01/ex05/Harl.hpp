@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   getters.cpp                                        :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arcebria <arcebria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/29 18:10:23 by arcebria          #+#    #+#             */
-/*   Updated: 2025/06/02 20:52:40 by arcebria         ###   ########.fr       */
+/*   Created: 2025/06/04 16:58:03 by arcebria          #+#    #+#             */
+/*   Updated: 2025/06/05 14:17:23 by arcebria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phoneBook.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-std::string Contact::getFirstName() {
-	return firstName;
-}
+# include <string>
+# include <iostream>
 
-std::string Contact::getLastName() {
-	return lastName;
-}
+class	Harl {
+	private:
+	void	debug(void);
+	void	info(void);
+	void	warning(void);
+	void	error(void);
 
-std::string Contact::getNickName() {
-	return nickName;
-}
+	public:
+	Harl(void);
+	void	complain(std::string level);
+};
 
-std::string	Contact::getPhoneNumber() {
-	return phoneNumber;
-}
-
-std::string	Contact::getDarkestSecret() {
-	return darkestSecret;
-}
-
-int	Contact::getIndex() {
-	return index;
-}
+#endif

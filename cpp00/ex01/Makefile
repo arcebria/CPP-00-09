@@ -4,13 +4,13 @@ NAME = phoneBook
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp phoneBook.cpp getters.cpp
-INC = phoneBook.hpp
+SRC = main.cpp phoneBook.cpp getters.cpp setters.cpp adders.cpp
+INC = phoneBook.hpp Contact.hpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) Makefile
 	$(CXX) $(CXXFLAGS) $(SRC) -o $(NAME)
 
 %.o: %.cpp $(INC)

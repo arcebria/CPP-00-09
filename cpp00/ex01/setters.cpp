@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   getters.cpp                                        :+:      :+:    :+:   */
+/*   setters.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arcebria <arcebria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 18:10:23 by arcebria          #+#    #+#             */
-/*   Updated: 2025/06/02 20:52:40 by arcebria         ###   ########.fr       */
+/*   Updated: 2025/06/02 20:59:00 by arcebria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phoneBook.hpp"
 
-std::string Contact::getFirstName() {
-	return firstName;
+void	Contact::setFirstName(std::string name) {
+	firstName = name;
 }
 
-std::string Contact::getLastName() {
-	return lastName;
+void	Contact::setLastName(std::string name) {
+	lastName = name;
 }
 
-std::string Contact::getNickName() {
-	return nickName;
+void	Contact::setNickName(std::string name) {
+	nickName = name;
 }
 
-std::string	Contact::getPhoneNumber() {
-	return phoneNumber;
+void	Contact::setPhoneNumber(std::string number) {
+	phoneNumber = number;
 }
 
-std::string	Contact::getDarkestSecret() {
-	return darkestSecret;
+void	Contact::setDarkestSecret(std::string secret) {
+	darkestSecret = secret;
 }
 
-int	Contact::getIndex() {
-	return index;
+void	Contact::setIndex(int currentIndex) {
+	index = currentIndex;
 }
