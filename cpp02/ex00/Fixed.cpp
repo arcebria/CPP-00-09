@@ -7,6 +7,10 @@ Fixed::Fixed(void) : numberValue(0) {
 Fixed::Fixed(const Fixed& other) : numberValue(other.numberValue) {
     std::cout << "Copy constructor called" << std::endl;
 }
+// a=b --> a.operator=(c)
+// si &a != &b
+// number value de a = number value de b
+// se retorna la referencia a "a"
 
 Fixed& Fixed::operator=(const Fixed& other) {
     std::cout << "Copy assignment operator called" << std::endl;

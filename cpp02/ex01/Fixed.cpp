@@ -28,16 +28,22 @@ Fixed::Fixed(const  int value) {
     this->numberValue = value << this->fractionalBits;
 }
 
-//aqui multiplicamos por 256 (1 << 8 = 2^8 = 256) para almacenar el numero float como un int desplazado 8 posiciones a la izquierda
+//aqui hacemos lo mismo pero con floats no se puede hacer shitft (<<)
+//asi que tenemos que multiplicar por 256 (1 << 8 = 2^8 = 256)
 
 Fixed::Fixed(const float value) {
     std::cout << "Float constructor called" << std::endl;
     this->numberValue = roundf(value * (1 << this->fractionalBits));
 }
 
+//desplaza los bits 8 posiciones a la derecha para quedarse con la parte entera
+//es lo mismo que dividir entre 256
+
 int Fixed::toInt(void) const {
     return this->numberValue >> this->fractionalBits;
 }
+
+//lo mismo pero en vez de hacer shift
 
 float   Fixed::toFloat(void) const {
     return (float)this->numberValue / (1 << this->fractionalBits);
