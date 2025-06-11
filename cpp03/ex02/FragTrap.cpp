@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arcebria <arcebria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 18:52:08 by arcebria          #+#    #+#             */
-/*   Updated: 2025/06/11 18:52:09 by arcebria         ###   ########.fr       */
+/*   Created: 2025/06/11 20:44:02 by arcebria          #+#    #+#             */
+/*   Updated: 2025/06/11 21:15:49 by arcebria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name)
-	: name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
-	std::cout << "ClapTrap object created" << std::endl;
+FragTrap::FragTrap(std::string name)
+			: ClapTrap(name) {
+				hitPoints = 100;
+				energyPoints = 100;
+				attackDamage = 30;
+				std::cout << "FragTrap created" << std::endl;
+			}
+
+FragTrap::~FragTrap(void) {
+	std::cout	<< "FragTrap destroyed" << std::endl;
 }
 
-ClapTrap::~ClapTrap(void) {
-	std::cout << "ClapTrap object destroyed" << std::endl;
+void	FragTrap::highFivesGuys(void) {
+	std::cout << name << " says: Do you want to high-fives bud?" << std::endl;
 }
 
-void	ClapTrap::attack(const std::string& target) {
+//--------------------------------------------------------------------------------------
+
+void	FragTrap::attack(const std::string& target) {
 	if (hitPoints == 0) {
 		std::cout	<< "No hit points remains" << std::endl;
 		return ;
@@ -30,13 +39,13 @@ void	ClapTrap::attack(const std::string& target) {
 		std::cout	<< "No energy points remains" << std::endl;
 		return ;
 	}
-	std::cout	<< "ClapTrap " << name << " attacks " << target
+	std::cout	<< "FragTrap " << name << " attacks " << target
 				<< ", causing " << attackDamage
 				<< " points of damage!" << std::endl;
 	energyPoints--;
 }
 
-void	ClapTrap::beRepaired(unsigned int amount) {
+void	FragTrap::beRepaired(unsigned int amount) {
 	if (hitPoints == 0) {
 		std::cout	<< "No hit points remains" << std::endl;
 		return ;
@@ -47,25 +56,7 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 	}
 	std::cout	<< name << " gains " << amount << " of hit points" << std::endl;
 	hitPoints += amount;
-	if (hitPoints > 10)
-		hitPoints = 10;
+	if (hitPoints > 100)
+		hitPoints = 100;
 	energyPoints--;
 }
-
-void	ClapTrap::takeDamage(unsigned int amount) {
-	if (hitPoints == 0) {
-		std::cout << name << " is already dead" << std::endl;
-	}
-	std::cout	<< name << " takes " << amount << " points of damage" << std::endl;
-	hitPoints -= amount;
-	if (hitPoints < 0)
-		hitPoints = 0;
-}
-
-// int	ClapTrap::getEnergyPoints(void) {
-// 	return	energyPoints;
-// }
-
-// int	ClapTrap::getHitPoints(void) {
-// 	return	hitPoints;
-// }

@@ -58,6 +58,14 @@ void    Fixed::setRawBits(int const raw) {
     this->numberValue = raw;
 }
 
+//el parametro out es std::cout, es decir, el fluujoo de salida estandar
+//y el parametro Fixed es el objeto de la clase fixed que queremos imprimir
+//luego le decimos que el valor pasado a float del objeto lo inserte en el flujo de salida
+//y devuelve ese flujo de salida para encadenar valores
+//se utiliza toFloat() porque el valor se guarda como numero de punto fijo, si enviamos un 10 se convertira en un 2560 (numberValue)
+//y al convertirlo a float sera un 10 (int), y un 10.1 se convertira en 2585 (numberValue) que al convertirlo a float sera 10.1
+//por eso todos los valores de la clase fixed se deben pasar a float
+
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed) {
     out << fixed.toFloat();
     return out;

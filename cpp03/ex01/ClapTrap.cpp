@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: arcebria <arcebria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 18:52:08 by arcebria          #+#    #+#             */
-/*   Updated: 2025/06/11 18:52:09 by arcebria         ###   ########.fr       */
+/*   Created: 2025/06/11 18:51:59 by arcebria          #+#    #+#             */
+/*   Updated: 2025/06/11 20:05:12 by arcebria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string name)
-	: name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
+	: name(name), hitPoints(10), energyPoints(5), attackDamage(0) {
 	std::cout << "ClapTrap object created" << std::endl;
 }
 
@@ -62,10 +62,10 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 		hitPoints = 0;
 }
 
-// int	ClapTrap::getEnergyPoints(void) {
-// 	return	energyPoints;
-// }
+int	ClapTrap::getEnergyPoints(void) {
+	return	energyPoints;
+}
 
-// int	ClapTrap::getHitPoints(void) {
-// 	return	hitPoints;
-// }
+int	ClapTrap::getHitPoints(void) {
+	return	hitPoints;
+}

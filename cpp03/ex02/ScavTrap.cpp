@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arcebria <arcebria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 18:52:08 by arcebria          #+#    #+#             */
-/*   Updated: 2025/06/11 18:52:09 by arcebria         ###   ########.fr       */
+/*   Created: 2025/06/11 19:30:12 by arcebria          #+#    #+#             */
+/*   Updated: 2025/06/11 21:16:12 by arcebria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name)
-	: name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
-	std::cout << "ClapTrap object created" << std::endl;
+ScavTrap::ScavTrap(std::string name)
+			: ClapTrap(name) {
+				hitPoints = 100;
+				energyPoints = 50;
+				attackDamage = 20;
+				std::cout << "ScavTrap created" << std::endl;
+			}
+ScavTrap::~ScavTrap(void) {
+	std::cout << "ScavTrap destroyed" << std::endl;
 }
 
-ClapTrap::~ClapTrap(void) {
-	std::cout << "ClapTrap object destroyed" << std::endl;
+void	ScavTrap::guardGate(void) {
+	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
 }
 
-void	ClapTrap::attack(const std::string& target) {
+//--------------------------------------------------------------------------
+
+void	ScavTrap::attack(const std::string& target) {
 	if (hitPoints == 0) {
 		std::cout	<< "No hit points remains" << std::endl;
 		return ;
@@ -30,13 +38,13 @@ void	ClapTrap::attack(const std::string& target) {
 		std::cout	<< "No energy points remains" << std::endl;
 		return ;
 	}
-	std::cout	<< "ClapTrap " << name << " attacks " << target
+	std::cout	<< "ScavTrap " << name << " attacks " << target
 				<< ", causing " << attackDamage
 				<< " points of damage!" << std::endl;
 	energyPoints--;
 }
 
-void	ClapTrap::beRepaired(unsigned int amount) {
+void	ScavTrap::beRepaired(unsigned int amount) {
 	if (hitPoints == 0) {
 		std::cout	<< "No hit points remains" << std::endl;
 		return ;
@@ -47,25 +55,8 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 	}
 	std::cout	<< name << " gains " << amount << " of hit points" << std::endl;
 	hitPoints += amount;
-	if (hitPoints > 10)
-		hitPoints = 10;
+	if (hitPoints > 100)
+		hitPoints = 100;
 	energyPoints--;
 }
 
-void	ClapTrap::takeDamage(unsigned int amount) {
-	if (hitPoints == 0) {
-		std::cout << name << " is already dead" << std::endl;
-	}
-	std::cout	<< name << " takes " << amount << " points of damage" << std::endl;
-	hitPoints -= amount;
-	if (hitPoints < 0)
-		hitPoints = 0;
-}
-
-// int	ClapTrap::getEnergyPoints(void) {
-// 	return	energyPoints;
-// }
-
-// int	ClapTrap::getHitPoints(void) {
-// 	return	hitPoints;
-// }

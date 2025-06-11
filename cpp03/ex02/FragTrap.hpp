@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arcebria <arcebria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 18:52:02 by arcebria          #+#    #+#             */
-/*   Updated: 2025/06/11 18:52:03 by arcebria         ###   ########.fr       */
+/*   Created: 2025/06/11 20:42:45 by arcebria          #+#    #+#             */
+/*   Updated: 2025/06/11 21:15:08 by arcebria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-int	main(void) {
-	ClapTrap	Arnau("Arnau");
+# include "ClapTrap.hpp"
 
-	Arnau.attack("Comunista");
-	Arnau.takeDamage(8);
-	Arnau.beRepaired(8);
-	// std::cout	<< "HitPoints: " << Arnau.getHitPoints() << std::endl
-	// 			<< "EnergyPoints: " << Arnau.getEnergyPoints() << std::endl;
-	return 0;
-}
+class	FragTrap: public ClapTrap {
+	public:
+	FragTrap(std::string name);
+	~FragTrap(void);
+	void	highFivesGuys(void);
+	void	beRepaired(unsigned int amount);
+	void	attack(const std::string& target);
+};
+
+#endif
