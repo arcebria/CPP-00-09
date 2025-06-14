@@ -7,7 +7,7 @@ class   WrongDog: public WrongAnimal {
     public:
     WrongDog(void);
     WrongDog(const WrongDog& other);
-    WrongDog& operator=(const Wrondg& other);
+    WrongDog& operator=(const WrongDog& other);
     ~WrongDog(void);
     void    makeSound(void) const;
 };
