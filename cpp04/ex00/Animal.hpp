@@ -7,6 +7,7 @@ class   Animal {
     protected:
     std::string type;
     public:
+    //!!PONER LO DE LA FORMA CANONICA DE LOS COJONES!!
     Animal(void);
     virtual ~Animal(void);
     virtual void makeSound() const;
