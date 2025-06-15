@@ -6,7 +6,7 @@ Dog::Dog(void) {
     dogBrain = new Brain();
 }
 
-Dog::Dog(const Dog& other) : Animal(other) {
+Dog::Dog(const Dog& other) : AAnimal(other) {
     std::cout << "Dog copy called" << std::endl;
     dogBrain = new Brain(*other.dogBrain);
 }
@@ -14,7 +14,7 @@ Dog::Dog(const Dog& other) : Animal(other) {
 Dog& Dog::operator=(const Dog& other){
     std::cout << "Dog assignment operator called" << std::endl;
     if (this != &other) {
-        Animal::operator=(other);
+        AAnimal::operator=(other);
         delete dogBrain;
         dogBrain = new Brain(*other.dogBrain);
     }

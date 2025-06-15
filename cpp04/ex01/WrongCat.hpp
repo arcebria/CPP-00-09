@@ -4,10 +4,11 @@
 # include "WrongAnimal.hpp"
 
 class   WrongCat: public WrongAnimal {
-    public:
-    WrongCat(void);
+    private:
     WrongCat(const WrongCat& other);
     WrongAnimal& operator=(const WrongCat& other);
+    public:
+    WrongCat(void);
     ~WrongCat(void);
     void    makeSound(void) const;
 };

@@ -6,7 +6,7 @@ Cat::Cat(void) {
     catBrain =  new Brain();
 }
 
-Cat::Cat(const Cat& other) : Animal(other) {
+Cat::Cat(const Cat& other) : AAnimal(other) {
     std::cout << "Cat copy called" << std::endl;
     catBrain = new Brain(*other.catBrain);
 }
@@ -14,7 +14,7 @@ Cat::Cat(const Cat& other) : Animal(other) {
 Cat& Cat::operator=(const Cat& other){
     std::cout << "Cat assignment operator called" << std::endl;
     if (this != &other) {
-        Animal::operator=(other);
+        AAnimal::operator=(other);
         delete catBrain;
         catBrain = new Brain(*other.catBrain);
     }
