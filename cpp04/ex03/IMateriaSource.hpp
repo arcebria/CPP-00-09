@@ -2,7 +2,6 @@
 # define IMATERIASOURCE_HPP
 
 # include <string>
-# include <AMateria.hpp>
 
 class AMateria;
 

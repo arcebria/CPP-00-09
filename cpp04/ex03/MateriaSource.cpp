@@ -19,10 +19,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other) {
 	std::cout << "MateriaSource copy assignment operator called" << std::endl;
 	if (this != &other) {
 		for (int i = 0; i < 4; i++) {
-			if (_templates[i])
-				delete _templates[i];
-		}
-		for (int i = 0; i < 4; i++) {
+			delete _templates[i];
 			if (other._templates[i])
 				_templates[i] = other._templates[i]->clone();
 			else _templates[i] = NULL;

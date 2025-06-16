@@ -5,7 +5,7 @@ Cure::Cure(void) : AMateria("cure") {
 }
 
 Cure::Cure(const Cure& other) : AMateria(other) {
-    std::cout << "Ice copy constructor called" << std::endl; 
+    std::cout << "Cure copy constructor called" << std::endl; 
 }
 
 Cure& Cure::operator=(const Cure& other) {
