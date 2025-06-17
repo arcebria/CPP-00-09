@@ -5,10 +5,10 @@
 
 class   WrongCat: public WrongAnimal {
     private:
-    WrongCat(const WrongCat& other);
-    WrongAnimal& operator=(const WrongCat& other);
     public:
     WrongCat(void);
+    WrongCat(const WrongCat& other);
+    WrongCat& operator=(const WrongCat& other);
     ~WrongCat(void);
     void    makeSound(void) const;
 };
