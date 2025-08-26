@@ -1,0 +1,55 @@
+Fase 1: Dividir(bajando en la recursion)
+
+Llamada 1: sortVectorMain([8, 3, 7, 1])
+├── midLeft = [8, 3]
+├── midRight = [7, 1]
+├── Llamada 2: sortVectorMain([8, 3])
+│   ├── midLeft = [8]  
+│   ├── midRight = [3]
+│   ├── Llamada 3: sortVectorMain([8]) → return [8] (caso base)
+│   ├── Llamada 4: sortVectorMain([3]) → return [3] (caso base) 
+│   └── fusionar([8], [3]) → return [3, 8] ✅
+├── Llamada 5: sortVectorMain([7, 1])
+│   ├── midLeft = [7]
+│   ├── midRight = [1] 
+│   ├── Llamada 6: sortVectorMain([7]) → return [7] (caso base)
+│   ├── Llamada 7: sortVectorMain([1]) → return [1] (caso base)
+│   └── fusionar([7], [1]) → return [1, 7] ✅
+└── fusionar([3, 8], [1, 7]) → return [1, 3, 7, 8] ✅
+
+Llamada 3 retorna [8] 
+        ↓
+Llamada 2 recibe [8] en leftSorted
+        ↓
+Llamada 4 retorna [3]
+        ↓  
+Llamada 2 recibe [3] en rightSorted
+        ↓
+Llamada 2 hace fusionar([8], [3]) = [3, 8]
+        ↓
+Llamada 2 retorna [3, 8] ← ¡Este resultado "sube"!
+
+
+Fase 2: Fusionar los retornos
+
+1. LLAMADA 3 retorna [8]
+   ↓
+2. LLAMADA 2 recibe [8] en leftSorted y continúa:
+   std::vector<int> rightSorted = sortVectorMain([3]);  // ← Ahora SÍ ejecuta esto
+   
+3. sortVectorMain([3]) retorna [3]
+   ↓
+4. LLAMADA 2 ahora tiene:
+   leftSorted = [8]
+   rightSorted = [3] 
+   return fusionar([8], [3]);  // ← Ejecuta fusionar y retorna [3, 8]
+   
+5. LLAMADA 1 recibe [3, 8] en leftSorted y continúa:
+   std::vector<int> rightSorted = sortVectorMain([7, 1]); // ← Ahora SÍ ejecuta esto
+   
+6. sortVectorMain([7, 1]) hace lo mismo y retorna [1, 7]
+   ↓
+7. LLAMADA 1 ahora tiene:
+   leftSorted = [3, 8]
+   rightSorted = [1, 7]
+   return fusionar([3, 8], [1, 7]); // ← ¡ÚLTIMA fusión! Retorna [1, 3, 7, 8]
