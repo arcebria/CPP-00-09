@@ -25,7 +25,7 @@ int main()
         sp.addNumber(0);
     }
     catch (std::exception& e) {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
 
     std::cout << "\n----Testing span with less than 2 numbers----" << std::endl;
@@ -34,7 +34,7 @@ int main()
         std::cout << sp2.longestSpan() << std::endl;
     }
     catch (std::exception& e) {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
 
     return 0;

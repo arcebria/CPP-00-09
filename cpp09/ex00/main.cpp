@@ -75,7 +75,6 @@ static std::string  parseValue(std::string const& line) {
 }
 
 static std::string parseDate(std::string const& line) {
-    
     size_t i = 0;
     std::string date;
     while (line[i] == ' ')

@@ -26,7 +26,7 @@ int main() {
 		std::cout << "Numero encontrado: " << *i << std::endl;
 	}
 	catch (const std::exception& e) {
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
 	try {
@@ -34,7 +34,7 @@ int main() {
 		std::cout << "Numero encontrado: " << *j << std::endl;
 	}
 	catch (const std::exception& e) {
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	 
 	try {
@@ -42,7 +42,7 @@ int main() {
 		std::cout << "Numero encontrado: " << *z << std::endl;
 	}
 	catch (const std::exception& e) {
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	return 0;
 }

@@ -9,10 +9,10 @@ int  main() {
         Bureaucrat politico("Politico", 0);
     }
     catch (const Bureaucrat::GradeTooHighException& e) {
-        std::cout << "Capturado: " << e.what() << std::endl;
+        std::cerr << "Capturado: " << e.what() << std::endl;
     }
     catch (const Bureaucrat::GradeTooLowException& e) {
-        std::cout << "Capturado: " << e.what() << std::endl;
+        std::cerr << "Capturado: " << e.what() << std::endl;
     }
 
     std::cout << std::endl << "----------------SECOND TEST ------------------" << std::endl;
@@ -24,10 +24,10 @@ int  main() {
         profe.decrementGrade();
     }
     catch (const Bureaucrat::GradeTooHighException& e) {
-         std::cout << "Capturado: " << e.what() << std::endl;
+         std::cerr << "Capturado: " << e.what() << std::endl;
     }
     catch (const Bureaucrat::GradeTooLowException& e) {
-        std::cout << "Capturado: " << e.what() << std::endl;
+        std::cerr << "Capturado: " << e.what() << std::endl;
     }
 
     std::cout << std::endl << "----------------THIRD TEST ------------------" << std::endl;
@@ -40,10 +40,10 @@ int  main() {
         boss.incrementGrade();
     }
     catch (const Bureaucrat::GradeTooHighException& e) {
-         std::cout << "Capturado: " << e.what() << std::endl;
+         std::cerr << "Capturado: " << e.what() << std::endl;
     }
     catch (const Bureaucrat::GradeTooLowException& e) {
-        std::cout << "Capturado: " << e.what() << std::endl;
+        std::cerr << "Capturado: " << e.what() << std::endl;
     }
 
     std::cout << std::endl << "----------------FOURTH TEST ------------------" << std::endl;

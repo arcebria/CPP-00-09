@@ -152,7 +152,7 @@ void ScalarConverter::convert(std::string const& literal) {
 	else if (isInt(literal)) {
 		long i = std::atol(literal.c_str());
 		if (i > INT_MAX || i < INT_MIN) {
-			std::cout << "Error: Integer overflow" << std::endl;
+			std::cerr << "Error: Integer overflow" << std::endl;
 			return ;
 		}
 		printAllTypes(static_cast<double>(i));
@@ -166,5 +166,5 @@ void ScalarConverter::convert(std::string const& literal) {
 		printAllTypes(d);
 	}
 	else
-		std::cout << "Error: Invalid literal format" << std::endl;
+		std::cerr << "Error: Invalid literal format" << std::endl;
 }

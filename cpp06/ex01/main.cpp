@@ -23,7 +23,7 @@ int main() {
         std::cout << "Deserialized data: " << deserializedPtr->id << std::endl;
         std::cout << "Serialization successful!" << std::endl;
     } else {
-        std::cout << "Serialization failed!" << std::endl;
+        std::cerr << "Serialization failed!" << std::endl;
     }
     
     return 0;
